@@ -8,8 +8,12 @@
  */
 export class CreditCardValidator {
     public static isValidNumber(cardNumber: string): boolean {
+        if(!cardNumber)
+            return false;
+        
         cardNumber = cardNumber.trim();
-        if (cardNumber.length == 0)
+
+        if (cardNumber.length == 0 || cardNumber.length < 16)
             return false;
 
         let regex = new RegExp("^[0-9]*$");
