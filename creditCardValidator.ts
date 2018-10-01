@@ -13,7 +13,7 @@ export class CreditCardValidator {
         
         cardNumber = cardNumber.trim();
 
-        if (cardNumber.length == 0 || cardNumber.length < 16)
+        if (cardNumber.length < 16)
             return false;
 
         let regex = new RegExp("^[0-9]*$");
