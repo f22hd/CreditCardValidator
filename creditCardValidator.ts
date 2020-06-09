@@ -8,15 +8,17 @@
  */
 export class CreditCardValidator {
     public static isValidNumber(cardNumber: string): boolean {
-        if(!cardNumber)
+        if (!cardNumber)
             return false;
-        
+
         cardNumber = cardNumber.trim();
 
-        if (cardNumber.length < 16)
-            return false;
-
-        let regex = new RegExp("^[0-9]*$");
+        /**
+         * validations:
+         * 1- only numbers are accepted.
+         * 2- user input should be 16 digits.
+         */
+        let regex = new RegExp("^[0-9]{16}$");
         if (!regex.test(cardNumber))
             return false;
 
@@ -41,4 +43,4 @@ export class CreditCardValidator {
 
 // TEST
 let cardNumber = "";
-console.log(CreditCardValidator.isValidNumber(cardNumber) ? 'Valid' : 'Ivalid');
+console.log(CreditCardValidator.isValidNumber(cardNumber) ? 'Valid' : 'Invalid');
